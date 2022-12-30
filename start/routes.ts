@@ -1,11 +1,21 @@
-import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+//import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
-import User from 'App/Models/User'
+//import User from 'App/Models/User'
 
+/*
 Route.get('/', async () => {
   return { hello: 'world' }
-})
+})*/
 
+Route.get('/', async() => {
+    return {
+        hortifrutti: "prático"
+    }
+});
+
+
+
+/*
 Route.get('/create-admin', async () => {
   User.create({
     email: 'admin@admin.com',
