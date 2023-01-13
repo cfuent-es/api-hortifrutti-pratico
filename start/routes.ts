@@ -1,11 +1,4 @@
-//import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
-//import User from 'App/Models/User'
-
-/*
-Route.get('/', async () => {
-  return { hello: 'world' }
-})*/
 
 Route.get('/', async() => {
     return {
@@ -13,32 +6,13 @@ Route.get('/', async() => {
     }
 });
 
+Route.post('/login', "AuthController.login")
 
+Route.group(() => {
+    Route.get('/me', "AuthController.me")
+    Route.post('/logout', "AuthController.logout")
 
-/*
-Route.get('/create-admin', async () => {
-  User.create({
-    email: 'admin@admin.com',
-    password: 'admin',
-    type: 'admin'
-  })
-})
-
-Route.post('/gettoken', async ({ request, response, auth }: HttpContextContract) => {
-  const email = request.input('email')
-  const password = request.input('password')
-
-  const user = await User.find('email', email)
-
-  if(user == null) {
-    return response.notFound("User not found")
-  }
-
-  const token = await auth.use('api').attempt(email, password)
-
-  return response.ok(token);
-})
-
-Route.get('/auth', async ({ response, auth }: HttpContextContract) => {
-  response.ok("somente usuários autenticados podem ver essa mensagem")
+    Route.put('/clients/update', "ClientsController.update")
 }).middleware('auth')
+
+Route.post("/clients/register", "ClientsController.store")

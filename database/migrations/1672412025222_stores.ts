@@ -19,7 +19,7 @@ export default class extends BaseSchema {
       table.boolean("active").notNullable().defaultTo(true);
       table.boolean("online").notNullable().defaultTo(false);
 
-      table.timestamps();
+      table.timestamps(true, true);
     })
   }
 
