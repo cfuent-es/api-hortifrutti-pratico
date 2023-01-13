@@ -17,7 +17,7 @@ export default class extends BaseSchema {
       table.string("name", 255).notNullable();
       table.string("phone", 15).notNullable();
 
-      table.timestamps();
+      table.timestamps(true, true);
     })
   }
 
